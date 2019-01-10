@@ -61,6 +61,7 @@ public class Sort
                 /** by traversing the array twice, I can compare every value to every other value */
                 //if the original value is greater than the value after it in the array
                 if(list[n] > list[a]){
+                    //swap them
                     int x = list[n];
                     list[n] = list[a];
                     list[a]=x;
