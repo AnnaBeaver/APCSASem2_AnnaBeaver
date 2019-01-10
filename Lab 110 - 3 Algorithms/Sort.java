@@ -42,12 +42,12 @@ public class Sort
         //making it go from last to first maked the limit
         for(int n = list.length; n >0; n--){
             //traverse the array again
-            for(int a = 0; a < list.length-1; a++){
-                //if the current value is smaller than the value of the one to it's right
-                if(list[a]>list[a+1]){
+            for(int a = 1; a < list.length; a++){
+                //if the current value is smaller than the value of the one to it's left
+                if(list[a]>list[a-1]){
                     //swap them
-                    int x = list[a+1];
-                    list[a+1] = list[a];
+                    int x = list[a-1];
+                    list[a-1] = list[a];
                     list[a]=x;
                 }
             }
