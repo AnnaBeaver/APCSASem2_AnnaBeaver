@@ -16,9 +16,46 @@ public class Sort
     }
     
     //sorting the array so that the smallest numbers are first
-    public static void sort(int list[]){
+    public static void mySort(int list[]){
         //traverse the array
         for(int n = 0; n < list.length; n++){
+            //traverse the array again
+            for(int a = 0; a < list.length-1; a++){
+                /** by traversing the array twice, I can compare every value to every other value */
+                //if the original value is greater than the value after it in the array
+                if(list[a] > list[a+1]){
+                    //set temporary variables equal to the original values in the array
+                    int i = list[a];
+                    int j = list[a+1];
+
+                    //switch the values in  the array by setting them equal to the other value 
+                    //from the top bit of this if statement
+                    list[a+1] = i;
+                    list[a] = j;
+                }
+            }
+        }
+    }
+    
+    public static void bubbleSort(int list[]){
+        //traverse the array
+        for(int n = list.length; n >0; n--){
+            //traverse the array again
+            for(int a = 0; a < list.length-1; a++){
+                
+                if(list[a]>list[a+1]){
+                    int x = list[a+1];
+                    list[a+1] = list[a];
+                    list[a]=x;
+                }
+            }
+            }
+        }
+    
+    
+    public static void selectionSort(int list[]){
+        //traverse the array
+        for(int n = list.length; n >0; n--){
             //traverse the array again
             for(int a = 0; a < list.length-1; a++){
                 /** by traversing the array twice, I can compare every value to every other value */

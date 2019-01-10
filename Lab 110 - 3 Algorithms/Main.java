@@ -9,8 +9,20 @@ public class Main
 {
     public static void main(){
         int[] list = new int[7];
+        
         Sort.setUp(list);
-        Sort.sort(list);
+        Sort.mySort(list);
+        Sort.print(list);
+        System.out.println();
+        
+        Sort.setUp(list);
+        Sort.bubbleSort(list);
+        Sort.print(list);
+        System.out.println();
+        
+        
+        Sort.setUp(list);
+        Sort.selectionSort(list);
         Sort.print(list);
     }
 }
