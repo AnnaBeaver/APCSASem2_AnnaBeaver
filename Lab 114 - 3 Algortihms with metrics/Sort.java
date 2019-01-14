@@ -20,17 +20,17 @@ public class Sort
         //traverse the array
         for(int n = 0; n < list.length; n++){
             //traverse the array again
-            for(int a = 0; a < list.length-1; a++){
+            for(int a = 1; a < list.length; a++){
                 /** by traversing the array twice, I can compare every value to every other value */
-                //if the original value is greater than the value after it in the array
-                if(list[a] < list[a+1]){
+                //if the original value is greater than the next value in the array
+                if(list[a] < list[a-1]){
                     //set temporary variables equal to the original values in the array
                     int i = list[a];
-                    int j =list[a+1];
+                    int j =list[a-1];
 
                     //switch the values in  the array by setting them equal to the other value 
                     //from the top bit of this if statement
-                    list[a+1] = i;
+                    list[a-1] = i;
                     list[a] = j;
                 }
             }
@@ -57,10 +57,10 @@ public class Sort
     
     public static void selectionSort(int list[]){
         for(int n = 0; n < list.length; n++){
-            for(int a = 0; a < list.length-1; a++){
+            for(int a = 0; a < list.length; a++){
                 /** by traversing the array twice, I can compare every value to every other value */
                 //if the original value is greater than the value after it in the array
-                if(list[n] > list[a]){
+                if(list[n] < list[a]){
                     int x = list[n];
                     list[n] = list[a];
                     list[a]=x;
@@ -68,6 +68,25 @@ public class Sort
             }
         }
     }
+    
+    public static void insertionSort(int list[]){
+        //create a temporary variable
+        int test;
+        //traverse the array starting at 1
+        for(int n = 1; n < list.length; n++){
+            //traverse the array starting at the end
+            for(int a = n; a > 0; a--){
+                //if the current value is greater than the one to its left
+                if(list[a] < list[a-1]){
+                    //swap them
+                    test = list[a];
+                    list[a] = list[a-1];
+                    list[a-1] = test;
+                }
+                }
+            }
+        }
+    
     
     //printing each value of the array on its own line
     public static void print(int list[]){

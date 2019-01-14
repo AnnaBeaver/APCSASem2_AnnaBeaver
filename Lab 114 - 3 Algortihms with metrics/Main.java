@@ -21,6 +21,10 @@ public class Main
         Sort.print(list);
         System.out.println();
         
+        Sort.setUp(list);
+        Sort.insertionSort(list);
+        Sort.print(list);
+        System.out.println();
         
         Sort.setUp(list);
         Sort.selectionSort(list);
