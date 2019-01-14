@@ -18,12 +18,14 @@ public class Sort
     //sorting the array so that the smallest numbers are first
     public static void mySort(int list[]){
         int swapCounter = 0;
+        int compareCounter = 0;
         //traverse the array
         for(int n = 0; n < list.length; n++){
             //traverse the array again
             for(int a = 1; a < list.length; a++){
                 /** by traversing the array twice, I can compare every value to every other value */
                 //if the original value is greater than the next value in the array
+                compareCounter++;
                 if(list[a] < list[a-1]){
                     //set temporary variables equal to the original values in the array
                     int i = list[a];
@@ -39,16 +41,19 @@ public class Sort
             }
         }
         System.out.println("Swap Counter = " + swapCounter);
+        System.out.println("Compare Counter = " + compareCounter);
     }
 
     public static void bubbleSort(int list[]){
         int swapCounter = 0;
+        int compareCounter = 0;
         //traverse the array
         //making it go from last to first maked the limit
         for(int n = list.length; n >0; n--){
             //traverse the array again
             for(int a = 0; a < list.length-1; a++){
                 //if the current value is smaller than the value of the one to it's right
+                compareCounter++;
                 if(list[a]>list[a+1]){
                     //swap them
                     int x = list[a+1];
@@ -60,17 +65,20 @@ public class Sort
             }
         }
         System.out.println("Swap Counter = " + swapCounter);
+        System.out.println("Compare Counter = " + compareCounter);
     }
 
     public static void insertionSort(int list[]){
         //create a temporary variable
         int test;
         int swapCounter = 0;
+        int compareCounter = 0;
         //traverse the array starting at 1
         for(int n = 1; n < list.length; n++){
             //traverse the array starting at the end
             for(int a = n; a > 0; a--){
                 //if the current value is greater than the one to its left
+                compareCounter++;
                 if(list[a] < list[a-1]){
                     //swap them
                     test = list[a];
@@ -82,14 +90,17 @@ public class Sort
             }
         }
         System.out.println("Swap Counter = " + swapCounter);
+        System.out.println("Compare Counter = " + compareCounter);
     }
 
     public static void selectionSort(int list[]){
         int swapCounter = 0;
+        int compareCounter = 0;
         for(int n = 0; n < list.length; n++){
             for(int a = 0; a < list.length; a++){
                 /** by traversing the array twice, I can compare every value to every other value */
                 //if the original value is greater than the value after it in the array
+                compareCounter++;
                 if(list[n] < list[a]){
                     int x = list[n];
                     list[n] = list[a];
@@ -100,6 +111,7 @@ public class Sort
             }
         }
         System.out.println("Swap Counter = " + swapCounter);
+        System.out.println("Compare Counter = " + compareCounter);
     }
     //printing each value of the array on its own line
     public static void print(int list[]){
@@ -122,7 +134,7 @@ public class Sort
 
     public static void displayTime(long start, long end){
         long display = end-start;
-        System.out.print(display);
+        System.out.print("Time = " + display);
     }
 
     public static int swapCounter(){
