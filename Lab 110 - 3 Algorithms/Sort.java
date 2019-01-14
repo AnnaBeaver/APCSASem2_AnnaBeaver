@@ -20,17 +20,17 @@ public class Sort
         //traverse the array
         for(int n = 0; n < list.length; n++){
             //traverse the array again
-            for(int a = 0; a < list.length-1; a++){
+            for(int a = 1; a < list.length; a++){
                 /** by traversing the array twice, I can compare every value to every other value */
                 //if the original value is greater than the value after it in the array
-                if(list[a] < list[a+1]){
+                if(list[a] < list[a-1]){
                     //set temporary variables equal to the original values in the array
                     int i = list[a];
-                    int j =list[a+1];
+                    int j =list[a-1];
 
                     //switch the values in  the array by setting them equal to the other value 
                     //from the top bit of this if statement
-                    list[a+1] = i;
+                    list[a-1] = i;
                     list[a] = j;
                 }
             }
@@ -39,11 +39,11 @@ public class Sort
     
     public static void bubbleSort(int list[]){
         //traverse the array
-        //making it go from last to first maked the limit
+        //making it go from last to first making the limit
         for(int n = list.length; n >0; n--){
             //traverse the array again
             for(int a = 0; a < list.length-1; a++){
-                //if the current value is smaller than the value of the one to it's right
+                //if the current value is smaller than the value of the one to it's left
                 if(list[a]>list[a+1]){
                     //swap them
                     int x = list[a+1];
@@ -60,7 +60,8 @@ public class Sort
             for(int a = 0; a < list.length-1; a++){
                 /** by traversing the array twice, I can compare every value to every other value */
                 //if the original value is greater than the value after it in the array
-                if(list[n] > list[a]){
+                if(list[n] < list[a]){
+                    //swap them
                     int x = list[n];
                     list[n] = list[a];
                     list[a]=x;
