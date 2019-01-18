@@ -59,6 +59,17 @@ public class Main
         System.out.println();
         System.out.println();
         
+        System.out.println();
+        System.out.println("Merge Sort");
+        ArrayList <Integer> list5 = new ArrayList<Integer>();
+        Sort.setUp(list5);
+        long start5 = Sort.startTimer();
+        //Sort.mergeSort(list5);
+        long end5 = Sort.endTimer();
+        Sort.displayTime(start5, end5);
+        Sort.print(list5);
+        System.out.println();
+        System.out.println();
         
     }
 }  
