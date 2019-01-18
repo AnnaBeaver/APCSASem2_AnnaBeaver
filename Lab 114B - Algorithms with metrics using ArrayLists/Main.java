@@ -10,6 +10,7 @@ import java.util.*;
 public class Main
 {
     public static void main(){
+        
         System.out.println();
         System.out.println("My Sort");
         ArrayList <Integer> list1 = new ArrayList<Integer>();
@@ -60,6 +61,5 @@ public class Main
         
         
     }
-    
 }  
 
