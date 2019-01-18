@@ -1,6 +1,6 @@
 //import java.lang.System.nanoTime();
 import java.lang.*;
-import java.util.*;
+    
 /**
  * Write a description of class Main here.
  *
@@ -13,7 +13,7 @@ public class Main
         
         System.out.println();
         System.out.println("My Sort");
-        ArrayList <Integer> list1 = new ArrayList<Integer>();
+        int[] list1 = new int[7];
         Sort.setUp(list1);
         long start1 = Sort.startTimer();
         Sort.mySort(list1);
@@ -25,7 +25,7 @@ public class Main
         
         System.out.println();
         System.out.println("Bubble Sort");
-        ArrayList <Integer> list2 = new ArrayList<Integer>();
+        int[] list2 = new int[7];
         Sort.setUp(list2);
         long start2 = Sort.startTimer();
         Sort.bubbleSort(list2);
@@ -37,7 +37,7 @@ public class Main
         
         System.out.println();
         System.out.println("Insertion Sort");
-        ArrayList <Integer> list3 = new ArrayList<Integer>();
+        int[] list3 = new int[7];
         Sort.setUp(list3);
         long start3 = Sort.startTimer();
         Sort.insertionSort(list3);
@@ -49,7 +49,7 @@ public class Main
         
         System.out.println();
         System.out.println("Selection Sort");
-        ArrayList <Integer> list4 = new ArrayList<Integer>();
+        int[] list4 = new int[7];
         Sort.setUp(list4);
         long start4 = Sort.startTimer();
         Sort.selectionSort(list4);
@@ -60,6 +60,17 @@ public class Main
         System.out.println();
         
         
+        System.out.println();
+        System.out.println("Merge Sort");
+        int[] list5 = new int[7];
+        Sort.setUp(list5);
+        long start5 = Sort.startTimer();
+        Sort.mergeSort(list5, 7);
+        long end5 = Sort.endTimer();
+        Sort.displayTime(start5, end5);
+        Sort.print(list4);
+        System.out.println();
+        System.out.println();
     }
 }  
 
