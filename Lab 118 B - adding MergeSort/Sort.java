@@ -128,7 +128,7 @@ public class Sort
             leftList.set(list.get(i),i);
         }
 
-        for(int i = midpoint; i<length; i++){
+        for(int i = midpoint; i < length; i++){
             rightList.set(list.get(i-midpoint),i);
         }
         mergeSort(leftList,midpoint);
@@ -138,7 +138,7 @@ public class Sort
     
     public static void merge(ArrayList <Integer> list, ArrayList <Integer> leftA, ArrayList <Integer>rightA){
         int i = 0, j=0, k=0;
-        while(i<leftA.size() && j<rightA.size()){
+        while(i < leftA.size() && j < rightA.size()){
             if(leftA.get(i) <= rightA.get(j)){
                 list.set(leftA.get(i++),k++);
             }
