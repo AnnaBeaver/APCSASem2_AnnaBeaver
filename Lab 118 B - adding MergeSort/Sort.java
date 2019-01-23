@@ -125,11 +125,11 @@ public class Sort
         ArrayList <Integer> rightList = new ArrayList <Integer> (length-midpoint);
         
         for(int i = 0; i<midpoint; i++){
-            leftList.get(i) = list.get(i);
+            leftList.set(list.get(i),i);
         }
 
         for(int i = midpoint; i<length; i++){
-            rightList.get(i-midpoint)=list.get(i);
+            rightList.set(list.get(i-midpoint),i);
         }
         mergeSort(leftList,midpoint);
         mergeSort(rightList,length-midpoint);
@@ -140,17 +140,17 @@ public class Sort
         int i = 0, j=0, k=0;
         while(i<leftA.size() && j<rightA.size()){
             if(leftA.get(i) <= rightA.get(j)){
-                list.set(k++) = leftA[i++];
+                list.set(leftA.get(i++),k++);
             }
             else{
-                list[k++] = rightA[j++];
+                list.set(rightA.get(j++),k++);
             }
         }
         while(i < leftA.size()){
-            list.set(k++) = leftA.get(j++);
+            list.set(leftA.get(j++),k++);
         }
         while(j < rightA.size()){
-            list.set(k++) = rightA.get(j++);
+            list.set(rightA.get(j++),k++);
         }
     }
     //printing each value of the array on its own line

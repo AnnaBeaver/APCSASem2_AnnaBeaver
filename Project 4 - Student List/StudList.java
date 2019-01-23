@@ -19,7 +19,9 @@ public class StudList{
      * implements the merge sort algorithm
      */
     public void mergeSort(ArrayList<Student> a, int n){
-        if (n < 2){return;}//base case
+        if (n < 2){
+            return;
+        }//base case
         int mid = n/2;
         ArrayList<Student> l = new ArrayList<Student>();//left half of array
         ArrayList<Student> r = new ArrayList<Student>();//right half of array
@@ -53,8 +55,12 @@ public class StudList{
                 a.set(k++, r.get(j++));
             }
         }
-        while (i < left) {a.set(k++, l.get(i++));}
-        while (j < right) {a.set(k++, r.get(j++));}
+        while (i < left) {
+            a.set(k++, l.get(i++));
+        }
+        while (j < right) {
+            a.set(k++, r.get(j++));
+        }
     }
     
     /**
