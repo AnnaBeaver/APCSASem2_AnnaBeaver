@@ -64,7 +64,7 @@ public class Main
         ArrayList <Integer> list5 = new ArrayList<Integer>();
         Sort.setUp(list5);
         long start5 = Sort.startTimer();
-        //Sort.mergeSort(list5);
+        Sort.mergeSort(list5,7);
         long end5 = Sort.endTimer();
         Sort.displayTime(start5, end5);
         Sort.print(list5);

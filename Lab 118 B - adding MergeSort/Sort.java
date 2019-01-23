@@ -115,6 +115,44 @@ public class Sort
         System.out.println("Swap Counter = " + swapCounter);
         System.out.println("Compare Counter = " + compareCounter);
     }
+    
+    public static void mergeSort(ArrayList <Integer> list, int length){
+        if(length<2){
+            return;
+        }  //Base Case
+        int midpoint = length/2;
+        ArrayList <Integer> leftList = new ArrayList <Integer> (midpoint);
+        ArrayList <Integer> rightList = new ArrayList <Integer> (length-midpoint);
+        
+        for(int i = 0; i<midpoint; i++){
+            leftList.get(i) = list.get(i);
+        }
+
+        for(int i = midpoint; i<length; i++){
+            rightList.get(i-midpoint)=list.get(i);
+        }
+        mergeSort(leftList,midpoint);
+        mergeSort(rightList,length-midpoint);
+        merge(list,leftList,rightList);
+    }
+    
+    public static void merge(ArrayList <Integer> list, ArrayList <Integer> leftA, ArrayList <Integer>rightA){
+        int i = 0, j=0, k=0;
+        while(i<leftA.size() && j<rightA.size()){
+            if(leftA.get(i) <= rightA.get(j)){
+                list.set(k++) = leftA[i++];
+            }
+            else{
+                list[k++] = rightA[j++];
+            }
+        }
+        while(i < leftA.size()){
+            list.set(k++) = leftA.get(j++);
+        }
+        while(j < rightA.size()){
+            list.set(k++) = rightA.get(j++);
+        }
+    }
     //printing each value of the array on its own line
     public static void print(ArrayList <Integer> list){
         //traverse the array

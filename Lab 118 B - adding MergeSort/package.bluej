@@ -2,6 +2,7 @@
 dependency1.from=Main
 dependency1.to=Sort
 dependency1.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=738
 editor.fx.0.width=816
 editor.fx.0.x=98
@@ -15,6 +16,21 @@ package.editor.width=830
 package.editor.x=1
 package.editor.y=0
 package.frame.height=1160
+=======
+editor.fx.0.height=745
+editor.fx.0.width=1366
+editor.fx.0.x=0
+editor.fx.0.y=23
+objectbench.height=202
+objectbench.width=936
+package.divider.horizontal=0.6
+package.divider.vertical=0.6957787481804949
+package.editor.height=471
+package.editor.width=834
+package.editor.x=360
+package.editor.y=23
+package.frame.height=745
+>>>>>>> 645265f04febb24bae952102aa2860cb4b95028a
 package.frame.width=960
 package.numDependencies=1
 package.numTargets=2
