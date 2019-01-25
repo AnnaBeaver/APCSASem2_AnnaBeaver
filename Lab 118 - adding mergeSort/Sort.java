@@ -1,4 +1,3 @@
-
 /**
  * Homework assignment for January 9, 2019
  * Create a sorting algorithm for a list of numbers
