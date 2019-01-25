@@ -31,40 +31,31 @@ public class Student
      * Student Methods (getters and setters for each)
      *
      */
-    public void setStuNumber(int sn)
-    {
+    public void setStuNumber(int sn){
         stuNumber = sn;
     }
-    public int getStuNumber()
-    {
+    public int getStuNumber(){
         return stuNumber;
     }
-    public void setStuGPA(double sn)
-    {
+    public void setStuGPA(double sn){
         stuGPA = sn;
     }
-    public double getStuGPA()
-    {
+    public double getStuGPA(){
         return stuGPA;
     }
-    public void setFirstName(String sn)
-    {
+    public void setFirstName(String sn){
         firstName = sn;
     }
-    public void setMiddleName(String sn)
-    {
+    public void setMiddleName(String sn){
         middleName = sn;
     }
-    public void setLastName(String sn)
-    {
+    public void setLastName(String sn){
         lastName = sn;
     }
-    public String getFullName()
-    {
-        return lastName+", "+firstName+" "+middleName;
+    public String getFullName(){
+        return lastName + ", " + firstName + " " + middleName;
     }
-    public String getLastName()
-    {
+    public String getLastName(){
         return lastName;
     }
 }

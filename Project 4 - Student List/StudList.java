@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 /**
  * ArrayList Project
- *
  * @Grace Jau
  * @version 1025
  */
@@ -49,7 +48,8 @@ public class StudList{
     public static void merge(ArrayList<Student> a, ArrayList<Student> l, ArrayList<Student> r, int left, int right){
         int i = 0, j = 0, k = 0;
         while (i < left && j < right){
-            if (l.get(i).getStuNumber() <= r.get(j).getStuNumber()){//compares the elements of each half of the array to sort and merge them
+            if (l.get(i).getStuNumber() <= r.get(j).getStuNumber()){
+                //compares the elements of each half of the array to sort and merge them
                 a.set(k++, l.get(i++));
             }else{
                 a.set(k++, r.get(j++));
@@ -61,6 +61,25 @@ public class StudList{
         while (j < right) {
             a.set(k++, r.get(j++));
         }
+    }
+    
+    public int runBinarySearch(String stuNum){
+        int search = Integer.parseInt(stuNum);
+        int location = binarySearch(studList, studList.size(), search); //runs binary search
+        return location;
+        /** WORKING HERE*/
+    }
+    
+    public int binarySearch(ArrayList <Student> a, int length, int search){
+        if (length < 2){
+            return a.get(length).getStuNumber();
+        }//base case
+        int midpoint = length/2;
+        while(a.get(midpoint).getStuNumber() > search){
+            binarySearch(a, midpoint, search);
+        }
+        return -1;
+        /** WORKING HERE*/
     }
     
     /**

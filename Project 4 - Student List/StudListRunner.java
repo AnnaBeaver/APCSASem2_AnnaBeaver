@@ -21,7 +21,8 @@ public class StudListRunner
             System.out.println("5 Print all of the students' information");
             System.out.println("6 Print a student's information");
             System.out.println("7 Sort the list of students");
-            System.out.println("8 Exit");
+            System.out.println("8 Search for a student");
+            System.out.println("9 Exit");
             System.out.println();
             statement = in.nextLine();
             if (statement.equals("1")){
@@ -76,7 +77,18 @@ public class StudListRunner
             }else if (statement.equals("7")){
                 sl.runMergeSort();
                 System.out.println("The student list has been sorted.");
-            }else if (!statement.equals("8")){//accounts for other cases
+            }
+            else if(statement.equals("8")){
+                System.out.println("Please input the student's number");
+                String stuNum = in.nextLine();
+                sl.runMergeSort();
+                int location = sl.runBinarySearch(stuNum);
+                if(location == -1){
+                    System.out.println("That student does not exist.  Please try again");
+                }
+                /**_____WORKING HERE_______*/
+            }
+            else if (!statement.equals("9")){//accounts for other cases
                 System.out.println("That was not a valid command. Please try again.");
             }
             System.out.println();
