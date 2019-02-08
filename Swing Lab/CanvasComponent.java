@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-public class CanvasComponent extends JComponent implements MouseListener, MouseMotionListener, ActionListener{
+public class CanvasComponent extends JComponent implements MouseListener, MouseMotionListener, ActionListener, KeyListener{
     int xPosition;
     int yPosition;
     int width;
@@ -9,10 +9,13 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
     int mouseFromX;
     int mouseFromY;
     boolean shapeSelected;
-    int animationDeltaX;
-    int animationDeltaY;
+    int animationDeltaX = 1;
+    int animationDeltaY = 0;
     int gutterX;
     int gutterY;
+    Timer animationTimer;
+
+    //Constructor
     CanvasComponent(int width, int height){
         this.xPosition = 0;
         this.yPosition = 0;
@@ -24,7 +27,11 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         this.animationDeltaY = 0;
         this.gutterX = 10;
         this.gutterY = 10;
+        animationTimer = new Timer(20, this);
+        this.animationTimer.start();
+        int motionSpeed = 1;
     }
+
 
     //Activity 2 #4
     protected void paintComponent(Graphics G){
@@ -63,7 +70,6 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         //the component that defines the MouseListener interface.�
     }
 
-    
     /**____________________________MOUSE MOTION LISTENER__________________________________*/
     public void mouseDragged(MouseEvent e){
         //This method is called by Swing when a mouse button is pressed and then the mouse
@@ -72,12 +78,12 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
             //getting the location of the mouse
             int mouseToX = e.getX();
             int mouseToY = e.getY();
-            
+
             //moving the rectangle to follow the mouse
             xPosition = xPosition + (mouseToX-xPosition);
             yPosition = yPosition + (mouseToY-yPosition);
-            
-            
+
+            //rechecking mouse position
             mouseToX = e.getX();
             mouseToY = e.getY();
             this.repaint();
@@ -88,12 +94,75 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         //This method is called by Swing when the mouse is moved without any button
         //depressed.
     }
-    
+
     /**________________________________ACTION LISTENER__________________________________*/
     public void actionPerformed(ActionEvent e){
         //Invoked when an action occurs. actionPerformed is called by a timer object at
         //regular intervals determined by the delay parameter to the constructor.
-        Dimension componentSizeDimention = this.getSize();
-        
+        Dimension componentSizeDimension = this.getSize();
+
+        //If the new right side of your shape plus gutterX exceeds the
+        //component width then update animationDeltaX and
+        //animationDeltaY so that your shape starts moving down. Set
+        //rectX to its maximum value; i.e. component width – rectWidth
+        //– gutterX. Increment rectY by the new animationDeltaY.
+
+        //Right Wall
+        if(xPosition + width + gutterX > componentSizeDimension.width){
+            animationDeltaX = 0;
+            animationDeltaY = 1;
+            xPosition += animationDeltaX;
+            yPosition += animationDeltaY;
+        }
+
+        //Bottom Wall
+        if(yPosition + height + gutterY > componentSizeDimension.height){
+            animationDeltaX = -1;
+            animationDeltaY = 0;
+            xPosition += animationDeltaX;
+            yPosition += animationDeltaY;
+        }
+
+        //Left Wall
+        if(xPosition <  gutterX){
+            animationDeltaX = 0;
+            animationDeltaY = -1;
+            xPosition += animationDeltaX;
+            yPosition += animationDeltaY;
+        }
+
+        //Top Wall
+        if(yPosition < gutterY){
+            animationDeltaX = 1;
+            animationDeltaY = 0;
+            xPosition += animationDeltaX;
+            yPosition += animationDeltaY;
+        }
+
+        else{
+            xPosition += animationDeltaX;
+            yPosition += animationDeltaY;
+        }
+
+        this.repaint();
+
     }
+
+    /**________________________KEY LISTENER____________________________________*/
+
+    public void keyTyped(KeyEvent e){
+        //Invoked when a key has been typed. Implementing this method is usually enough
+        //for most applications, and it will be for ours
+    }
+
+    public void keyPressed(KeyEvent e){
+        //Invoked when a key has been pressed. You will leave the implementation of this
+        //empty.
+    }
+
+    public void keyReleased(KeyEvent e){
+        //Invoked when a key has been released. You will leave the implementation of this
+        //empty.
+    }
+
 }
