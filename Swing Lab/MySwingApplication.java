@@ -9,6 +9,7 @@ public class MySwingApplication implements Runnable
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.add(canvasComponent);
         jFrame.setVisible(true);
+        jFrame.addKeyListener(canvasComponent);
         
     }
     public static void main(){

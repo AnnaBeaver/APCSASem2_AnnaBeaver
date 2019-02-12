@@ -16,6 +16,7 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
     int gutterX;
     int gutterY;
     Timer animationTimer;
+    int motionSpeed;
 
     //Constructor
     CanvasComponent(int width, int height){
@@ -31,7 +32,7 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         this.gutterY = 10;
         animationTimer = new Timer(20, this);
         this.animationTimer.start();
-        int motionSpeed = 1;
+        this.motionSpeed = 1;
     }
 
     //Activity 2 #4
@@ -121,14 +122,14 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         //Right Wall
         if(xPosition + width + gutterX > componentSizeDimension.width){
             animationDeltaX = 0;
-            animationDeltaY = 1;
+            animationDeltaY = animationDeltaY + motionSpeed;
             xPosition += animationDeltaX;
             yPosition += animationDeltaY;
         }
 
         //Bottom Wall
         if(yPosition + height + gutterY > componentSizeDimension.height){
-            animationDeltaX = -1;
+            animationDeltaX = animationDeltaX - motionSpeed;
             animationDeltaY = 0;
             xPosition += animationDeltaX;
             yPosition += animationDeltaY;
@@ -137,14 +138,14 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         //Left Wall
         if(xPosition <  gutterX){
             animationDeltaX = 0;
-            animationDeltaY = -1;
+            animationDeltaY = animationDeltaY - motionSpeed;
             xPosition += animationDeltaX;
             yPosition += animationDeltaY;
         }
 
         //Top Wall
         if(yPosition < gutterY){
-            animationDeltaX = 1;
+            animationDeltaX = animationDeltaX + motionSpeed;
             animationDeltaY = 0;
             xPosition += animationDeltaX;
             yPosition += animationDeltaY;
@@ -164,16 +165,21 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
     public void keyTyped(KeyEvent e){
         //Invoked when a key has been typed. Implementing this method is usually enough
         //for most applications, and it will be for ours
+        char keyChar = e.getKeyChar();
+        if(keyChar == '+'){
+            this.motionSpeed ++;
+        }
+        if(keyChar == '-' && motionSpeed > 0){
+            this.motionSpeed --;
+        }
     }
 
     public void keyPressed(KeyEvent e){
-        //Invoked when a key has been pressed. You will leave the implementation of this
-        //empty.
+        //empty
     }
 
     public void keyReleased(KeyEvent e){
-        //Invoked when a key has been released. You will leave the implementation of this
-        //empty.
+        //empty
     }
 
 }
