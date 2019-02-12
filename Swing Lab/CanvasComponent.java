@@ -8,7 +8,9 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
     int height;
     int mouseFromX;
     int mouseFromY;
-    boolean shapeSelected;
+    int mouseToX;
+    int mouseToY;
+    boolean shapeSelected = false;
     int animationDeltaX = 1;
     int animationDeltaY = 0;
     int gutterX;
@@ -32,7 +34,6 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         int motionSpeed = 1;
     }
 
-
     //Activity 2 #4
     protected void paintComponent(Graphics G){
         G.setColor(Color.blue);
@@ -54,8 +55,11 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         if(mouseFromX > xPosition && mouseFromX < xPosition+width && mouseFromY > yPosition && mouseFromY < yPosition+height){
             shapeSelected = true;
         }
+        else{
+            shapeSelected = false;
+        }
     }
-
+    
     public void mouseReleased(MouseEvent e){
         //This method is called by Swing when a mouse button is released.
     }
@@ -88,6 +92,13 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
             mouseToY = e.getY();
             this.repaint();
         }
+        else{
+            mouseToX = e.getX();
+            mouseToY = e.getY();
+            
+            animationDeltaX = (this.mouseToX - xPosition)/50;
+            animationDeltaY = (this.mouseToY - yPosition)/50;
+        }
     }
 
     public void mouseMoved(MouseEvent e){
@@ -104,8 +115,8 @@ public class CanvasComponent extends JComponent implements MouseListener, MouseM
         //If the new right side of your shape plus gutterX exceeds the
         //component width then update animationDeltaX and
         //animationDeltaY so that your shape starts moving down. Set
-        //rectX to its maximum value; i.e. component width – rectWidth
-        //– gutterX. Increment rectY by the new animationDeltaY.
+        //rectX to its maximum value(component width – rectWidth
+        //– gutterX). Increment rectY by the new animationDeltaY.
 
         //Right Wall
         if(xPosition + width + gutterX > componentSizeDimension.width){
