@@ -7,11 +7,11 @@ import java.util.ArrayList;
  * initialize, shuffle, deal, and check if empty.
  */
 public class Deck {
-
     /**
      * cards contains all the cards in the deck.
      */
     private List<Card> cards;
+    //DEclaration of Arraylist Cards
 
     /**
      * size is the number of not-yet-dealt cards.
@@ -29,12 +29,13 @@ public class Deck {
      * @param values is an array containing all of the card point values.
      */
     public Deck(String[] ranks, String[] suits, int[] values) {
-        ArrayList <Card> cards = new ArrayList <Card>();
+        cards = new ArrayList <Card>();
         String[] rank = {"Ace", "2", "3", "4"};
         String[] suit = {"Clubs", "Hearts", "Diamonds", "Spades"};
         int[] value = {1, 2, 3, 4};
         for(int i = 0; i<value.length; i++){
             Card cardOne = new Card(rank[i], suit[i], value[i]);
+            //Initialization of Arraylist Cards
             cards.add(i, cardOne);
         }
         int size = cards.size();
@@ -61,7 +62,7 @@ public class Deck {
      */
     public int size() {
         /* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-        return 15;
+        return cards.size();
     }
 
     /**
@@ -70,17 +71,22 @@ public class Deck {
      */
     public void shuffle() {
         /* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+        
     }
-    /*
+    
     /**
      * Deals a card from this deck.
      * @return the card just dealt, or null if all the cards have been
      *         previously dealt.
-
-    public Card deal() {
-    // *** TO BE IMPLEMENTED IN ACTIVITY 2 *** 
-    }
      */
+    public Card deal() {
+        // *** TO BE IMPLEMENTED IN ACTIVITY 2 *** 
+        if(cards.size() == 0){
+            return null;
+        }
+        return cards.get((int)Math.random()*(cards.size()));
+    }
+     
 
     /**
      * Generates and returns a string representation of this deck.
