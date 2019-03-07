@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=CodeWordChecker
+comment1.params=mini\ maxi\ stri
+comment1.target=CodeWordChecker(int,\ int,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ CodeWordChecker\r\n
+comment2.params=check
+comment2.target=boolean\ isValid(java.lang.String)
+numComments=3
