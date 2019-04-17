@@ -24,7 +24,7 @@ public class GridTester{
             for(int c = 0; c<cols; c++){//traversing cols
                 int shuffler = (int) (Math.random()*3)+1;
                 if(shuffler == 3){
-                    //grid(r,c) = true;
+                    //Cell.occupied(r,c) = true;
                 }
             }
         }

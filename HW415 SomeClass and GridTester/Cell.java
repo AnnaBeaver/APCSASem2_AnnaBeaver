@@ -19,6 +19,8 @@ public class Cell
 
     //Methods
     public void loadNeighbors(){
-        
+        for(int c = 0; c<neighbors.size(); c++){
+            
+        }
     }
 }
