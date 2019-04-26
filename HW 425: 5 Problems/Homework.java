@@ -7,9 +7,8 @@ public class Homework
 {
     //Instance Variables
 
-    //Constructors
-    public Homework(){
-        
+    //Constructor
+    public Homework(){   
     }
 
     //Methods
